@@ -53,7 +53,6 @@ class QuestionAdmin(admin.ModelAdmin):
 
 # Lesson administration
 class LessonAdmin(admin.ModelAdmin):
-    inlines = [QuestionInline]
     list_display = ['title', 'course']
 
 
