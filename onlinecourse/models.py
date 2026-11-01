@@ -111,6 +111,13 @@ class Question(models.Model):
     def __str__(self):
         return self.question_text
 
+    def is_get_score(self, selected_ids):
+        all_answers = self.choice_set.filter(is_correct=True)
+        if set(selected_ids) == set(
+            answer.id for answer in all_answers
+        ):
+            return True
+        return False
 
 # Choice model
 class Choice(models.Model):
